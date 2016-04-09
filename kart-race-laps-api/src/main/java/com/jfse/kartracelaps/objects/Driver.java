@@ -7,4 +7,6 @@ public interface Driver {
     void setKart(Kart kart);
 
     Kart getKart();
+
+    String getName();
 }

@@ -6,9 +6,12 @@ package com.jfse.kartracelaps.objects;
 public class DriverImpl implements Driver{
     private Kart kart;
 
-    public DriverImpl(Kart kart)
+    private String name;
+
+    public DriverImpl(Kart kart, String name)
     {
         this.kart = kart;
+        this.name = name;
     }
 
     /**
@@ -27,5 +30,14 @@ public class DriverImpl implements Driver{
     @Override
     public Kart getKart() {
         return kart;
+    }
+
+    /**
+     * This is the drivers name. It should not be modified
+     * @return
+     */
+    @Override
+    public String getName() {
+        return name;
     }
 }

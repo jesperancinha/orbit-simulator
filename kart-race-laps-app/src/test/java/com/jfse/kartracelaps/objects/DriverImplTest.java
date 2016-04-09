@@ -11,8 +11,8 @@ public class DriverImplTest {
     @Test
     public void getKart() throws Exception {
         final Integer kartId = 0;
-        final Kart kart = new KartImpl(kartId);
-        final Driver driver = new DriverImpl(kart);
+        final Kart kart = new KartImpl(kartId, minTimeForLap, maxTimeForLap, nLaps);
+        final Driver driver = new DriverImpl(kart, name);
 
 
         assertSame(kart, driver.getKart());
