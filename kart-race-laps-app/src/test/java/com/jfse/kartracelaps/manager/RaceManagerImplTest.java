@@ -1,6 +1,6 @@
 package com.jfse.kartracelaps.manager;
 
-import com.jfse.kartracelaps.objects.Result;
+import com.jfse.kartracelaps.results.Result;
 import org.junit.Test;
 
 /**
@@ -9,7 +9,7 @@ import org.junit.Test;
 public class RaceManagerImplTest {
     @Test
     public void start() throws Exception {
-        final RaceManager raceManager = new RaceManagerImpl(1000,1500, 10, 100);
+        final RaceManager raceManager = new RaceManagerImpl(100,150, 10, 100);
         raceManager.addDriver("Racer 1",1);
         raceManager.addDriver("Racer 2",2);
         raceManager.addDriver("Racer 3",3);

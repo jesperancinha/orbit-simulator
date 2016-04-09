@@ -2,6 +2,7 @@ package com.jfse.kartracelaps.objects;
 
 import java.text.MessageFormat;
 import java.time.LocalTime;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -17,7 +18,7 @@ public class KartImpl implements Kart {
     private static final Logger LOGGER = Logger.getLogger(KartImpl.class.getName());
     private static Random RANDOM = new Random();
 
-    private Map<Integer, LocalTime> lapTimes;
+    private Map<Integer, Snapshot> lapTimes;
     private Integer kartId;
 
     private final Integer minTimeForLap;
@@ -45,11 +46,11 @@ public class KartImpl implements Kart {
      * Adds a timestamp to a car for a lap.
      *
      * @param lap
-     * @param timeStamp
+     * @param snapshot
      */
     @Override
-    public void addTimeStamp(Integer lap, LocalTime timeStamp) {
-        lapTimes.put(lap, timeStamp);
+    public void addSnapshot(Integer lap, Snapshot snapshot) {
+        lapTimes.put(lap, snapshot);
     }
 
     /**
@@ -59,7 +60,7 @@ public class KartImpl implements Kart {
      * @return
      */
     @Override
-    public LocalTime getTimeStampByLap(Integer lap) {
+    public Snapshot getSnapshotByLap(Integer lap) {
         return lapTimes.get(lap);
     }
 
@@ -92,7 +93,7 @@ public class KartImpl implements Kart {
                     );
                     TimeUnit.MILLISECONDS.sleep(simulatedTimeToWait);
                     final LocalTime registeringTime = LocalTime.now();
-                    lapTimes.put(i, registeringTime);
+                    lapTimes.put(i, new SnapshotImpl(registeringTime, simulatedTimeToWait));
                     LOGGER.log(Level.INFO, //
                             MessageFormat.format("{0} had finished lap {1} at {2}", //
                                     this.driver.getName(), //
@@ -119,5 +120,15 @@ public class KartImpl implements Kart {
     @Override
     public boolean isSuccess() {
         return success;
+    }
+
+    @Override
+    public Integer getCompleteDuration() {
+        final Collection<Snapshot> snapshots = lapTimes.values();
+        Integer duration = 0;
+        for (Snapshot snapshot : snapshots) {
+            duration += snapshot.getDuration();
+        }
+        return duration;
     }
 }

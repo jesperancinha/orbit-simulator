@@ -5,41 +5,44 @@ import com.jfse.kartracelaps.objects.DriverImpl;
 import com.jfse.kartracelaps.objects.Kart;
 import com.jfse.kartracelaps.objects.KartImpl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class DriverManagerImpl implements DriverManager {
-    final List<Driver> driverList;
+    final Map<Integer, Driver> driverList;
     private Integer minTimeForLap;
     private Integer maxTimeForLap;
     private Integer nLaps;
 
-    public DriverManagerImpl(Integer minTimeForLap, Integer maxTimeForLap, Integer nLaps)
-    {
+    public DriverManagerImpl(Integer minTimeForLap, Integer maxTimeForLap, Integer nLaps) {
         this.minTimeForLap = minTimeForLap;
         this.maxTimeForLap = maxTimeForLap;
         this.nLaps = nLaps;
-        driverList = new ArrayList<>();
+        driverList = new HashMap<>();
     }
 
     @Override
     public void addDriver(String name, Integer kartId) {
         final Kart kart = new KartImpl(kartId, minTimeForLap, maxTimeForLap, nLaps);
         final Driver driver = new DriverImpl(kart, name);
-        driverList.add(driver);
+        driverList.put(kartId, driver);
     }
 
     @Override
-    public List<Driver> getDriverList() {
+    public Map<Integer, Driver> getDriverList() {
         return driverList;
     }
 
     @Override
-    public void restart()
-    {
+    public Driver getDriverByKartId(Integer kartId) {
+        return driverList.get(kartId);
+    }
+
+    @Override
+    public void restart() {
         driverList.clear();
     }
 

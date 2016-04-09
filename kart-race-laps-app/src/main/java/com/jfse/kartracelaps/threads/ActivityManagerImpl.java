@@ -6,11 +6,9 @@ import com.jfse.kartracelaps.objects.Driver;
 import com.jfse.kartracelaps.objects.Kart;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
@@ -26,7 +24,7 @@ public class ActivityManagerImpl implements ActivityManager {
     @Override
     public void startRace() throws ExecutionException, InterruptedException, DriverAccidentException {
         startRace = true;
-        final List<Driver> drivers = driverManager.getDriverList();
+        final Collection<Driver> drivers = driverManager.getDriverList().values();
         List<Future<Kart>> allDriverWaiter = new ArrayList<>();
         ExecutorService executor = Executors.newFixedThreadPool(drivers.size());
 
@@ -41,7 +39,19 @@ public class ActivityManagerImpl implements ActivityManager {
                 throw new DriverAccidentException(kart.getKartId());
             }
         }
-        startRace = false;
+        try {
+            executor.shutdown();
+            executor.awaitTermination(60, TimeUnit.SECONDS);
+        }
+        catch (InterruptedException e) {
+            System.err.println("termination interrupted");
+        }
+        finally {
+            if (!executor.isTerminated()) {
+                System.err.println("ending tasks");
+            }
+            executor.shutdownNow();
+        }        startRace = false;
     }
 
     @Override

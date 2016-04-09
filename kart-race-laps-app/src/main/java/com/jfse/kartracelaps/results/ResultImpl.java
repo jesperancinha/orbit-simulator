@@ -1,4 +1,4 @@
-package com.jfse.kartracelaps.objects;
+package com.jfse.kartracelaps.results;
 
 
 import java.time.LocalTime;
@@ -13,11 +13,15 @@ public class ResultImpl implements Result {
     private String driverName;
     private Integer kartNumber;
     private LocalTime timeStamp;
+    private Integer duration;
+    private Integer lapNumber;
 
-    public ResultImpl(String driverName, Integer kartNumber, LocalTime timeStamp) {
+    public ResultImpl(String driverName, Integer kartNumber, LocalTime timeStamp, Integer duration, Integer lapNumber) {
         this.driverName = driverName;
         this.kartNumber = kartNumber;
         this.timeStamp = timeStamp;
+        this.duration = duration;
+        this.lapNumber = lapNumber;
     }
 
     @Override
@@ -41,7 +45,17 @@ public class ResultImpl implements Result {
     }
 
     @Override
+    public Integer getDuration() {
+        return duration;
+    }
+
+    @Override
     public String toString() {
         return driverName.concat(",").concat(kartNumber.toString()).concat(",").concat(getTimeStampString());
+    }
+
+    @Override
+    public Integer getLapNumber() {
+        return lapNumber;
     }
 }

@@ -3,7 +3,7 @@ package com.jfse.kartracelaps;
 import com.jfse.kartracelaps.exceptions.DriverAccidentException;
 import com.jfse.kartracelaps.manager.RaceManager;
 import com.jfse.kartracelaps.manager.RaceManagerImpl;
-import com.jfse.kartracelaps.objects.Result;
+import com.jfse.kartracelaps.results.Result;
 import com.jfse.kartracelaps.options.KartOptions;
 import com.opencsv.CSVWriter;
 import org.kohsuke.args4j.CmdLineException;
@@ -63,6 +63,7 @@ public class KartRaceMain {
         for (Result result : raceManager.getResults()) {
             writer.writeNext(new String[]{result.getKartNumber().toString(), result.getTimeStampString()});
         }
+        writer.flush();
         writer.close();
     }
 }

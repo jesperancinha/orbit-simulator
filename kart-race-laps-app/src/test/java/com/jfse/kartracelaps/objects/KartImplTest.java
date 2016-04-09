@@ -21,8 +21,8 @@ public class KartImplTest {
         final Integer lap = 0;
         final LocalTime time = LocalTime.now();
 
-        kart.addTimeStamp(0, time);
+        kart.addSnapshot(0, new SnapshotImpl(time, 0));
 
-        assertEquals(time, kart.getTimeStampByLap(lap));
+        assertEquals(time, kart.getSnapshotByLap(lap).getTimeStamp());
     }
 }

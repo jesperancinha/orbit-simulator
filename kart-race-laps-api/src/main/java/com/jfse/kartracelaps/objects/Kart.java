@@ -1,6 +1,5 @@
 package com.jfse.kartracelaps.objects;
 
-import java.time.LocalTime;
 import java.util.concurrent.Callable;
 
 /**
@@ -9,9 +8,9 @@ import java.util.concurrent.Callable;
 public interface Kart {
     void setDriver(Driver driver);
 
-    void  addTimeStamp(Integer lap, LocalTime timeStamp);
+    void addSnapshot(Integer lap, Snapshot snapshot);
 
-    LocalTime getTimeStampByLap(Integer lap);
+    Snapshot getSnapshotByLap(Integer lap);
 
     Integer getKartId();
 
@@ -20,4 +19,6 @@ public interface Kart {
     Integer getSimulatedTimeToWait() throws InterruptedException;
 
     boolean isSuccess();
+
+    Integer getCompleteDuration();
 }

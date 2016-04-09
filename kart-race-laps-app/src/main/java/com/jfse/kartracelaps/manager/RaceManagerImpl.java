@@ -2,20 +2,27 @@ package com.jfse.kartracelaps.manager;
 
 import com.jfse.kartracelaps.exceptions.DriverAccidentException;
 import com.jfse.kartracelaps.objects.*;
+import com.jfse.kartracelaps.results.*;
 import com.jfse.kartracelaps.threads.ActivityManager;
 import com.jfse.kartracelaps.threads.ActivityManagerImpl;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class RaceManagerImpl implements RaceManager {
+    private static final Logger LOGGER = Logger.getLogger(RaceManagerImpl.class.getName());
+
     private final DriverManager driverManager;
     private final Track track;
+    private FastestLap fastestLap;
+    private Winner winne;
 
     /**
      * @param minTimeForLap In miliseconds
@@ -40,29 +47,58 @@ public class RaceManagerImpl implements RaceManager {
     }
 
     @Override
-    public List<Driver> getAllDrivers() {
-        return driverManager.getDriverList();
+    public Collection<Driver> getAllDrivers() {
+        return driverManager.getDriverList().values();
     }
 
     @Override
     public List<Result> getResults() {
         final List<Result> results = new ArrayList<>();
-        for (final Driver driver : driverManager.getDriverList()) {
+        for (final Driver driver : getAllDrivers()) {
             for (int i = 1; i <= driverManager.getnLaps(); i++) {
                 final Result result = new ResultImpl(
                         driver.getName(), //
                         driver.getKart().getKartId(), //
-                        driver.getKart().getTimeStampByLap(i) //
-                );
+                        driver.getKart().getSnapshotByLap(i).getTimeStamp(), //
+                        driver.getKart().getSnapshotByLap(i).getDuration(),
+                        i);
                 results.add(result);
             }
         }
 
-        Collections.sort(results, //
-                (Result result1, Result result2) //
-                -> result1.getTimeStamp().compareTo(result2.getTimeStamp()));
+        orderResultsByDuration(results);
+
+        final Result winningResult = results.get(0);
+        final Driver driverWinner = driverManager.getDriverByKartId(winningResult.getKartNumber());
+        final Kart winningKart = driverWinner.getKart();
+        final Winner winner = new WinnerImpl( //
+                winningKart.getKartId(), //
+                winningKart.getCompleteDuration() //
+        );
+        LOGGER.info(winner.toString());
+
+        final FastestLap fastesLap = new FastestLapImpl( //
+                winningKart.getKartId(), //
+                winningResult.getDuration(), //
+                winningResult.getLapNumber() //
+        );
+        LOGGER.info(fastesLap.toString());
+
+        orderResultListByTimeStamp(results);
 
         return results;
+    }
+
+    private void orderResultsByDuration(List<Result> results) {
+        Collections.sort(results, //
+                (Result result1, Result result2) //
+                        -> result1.getDuration().compareTo(result2.getDuration()));
+    }
+
+    private void orderResultListByTimeStamp(List<Result> results) {
+        Collections.sort(results, //
+                (Result result1, Result result2) //
+                        -> result1.getTimeStamp().compareTo(result2.getTimeStamp()));
     }
 
 }

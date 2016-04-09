@@ -5,12 +5,8 @@ import java.time.LocalTime;
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
-public interface Result {
-    String getDriverName();
-
-    Integer getKartNumber();
+public interface Snapshot {
+    Integer getDuration();
 
     LocalTime getTimeStamp();
-
-    String getTimeStampString();
 }

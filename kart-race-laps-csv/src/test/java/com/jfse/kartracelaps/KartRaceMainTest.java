@@ -12,9 +12,9 @@ public class KartRaceMainTest {
                 "--kart-ids-comma-separated", //
                 "1,2,3,4,5",
                 "--min-simulation-time", //
-                "1000",
+                "100",
                 "--max-simulation-time", //
-                "1500",
+                "150",
                 "--number-of-laps", //
                 "10", //
                 "--track-length", //
