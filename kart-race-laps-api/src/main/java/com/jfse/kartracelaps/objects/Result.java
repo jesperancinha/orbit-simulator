@@ -11,4 +11,6 @@ public interface Result {
     Integer getKartNumber();
 
     LocalTime getTimeStamp();
+
+    String getTimeStampString();
 }

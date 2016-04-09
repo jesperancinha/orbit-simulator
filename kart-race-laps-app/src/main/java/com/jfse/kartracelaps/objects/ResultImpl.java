@@ -36,8 +36,12 @@ public class ResultImpl implements Result {
     }
 
     @Override
-    public String toString()
-    {
-        return driverName.concat(",").concat(kartNumber.toString()).concat(",").concat(DATEFORMATTER.format(timeStamp));
+    public String getTimeStampString() {
+        return DATEFORMATTER.format(timeStamp);
+    }
+
+    @Override
+    public String toString() {
+        return driverName.concat(",").concat(kartNumber.toString()).concat(",").concat(getTimeStampString());
     }
 }

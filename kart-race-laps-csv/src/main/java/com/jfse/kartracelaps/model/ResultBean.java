@@ -1,11 +1,16 @@
 package com.jfse.kartracelaps.model;
 
+import com.opencsv.bean.CsvBind;
+
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class ResultBean {
 
+    @CsvBind
     private String kart;
+
+    @CsvBind
     private String passingtime;
 
 

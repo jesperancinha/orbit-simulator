@@ -11,7 +11,22 @@ public class KartOptions {
     private String names;
 
     @Option(name = "--kart-ids-comma-separated", aliases = "-k", required = false)
-    private String kartIds;
+    private String kartIds = null;
+
+    @Option(name = "--min-simulation-time", aliases = "-min", required = true)
+    private Integer minSimulationTime;
+
+    @Option(name = "--max-simulation-time", aliases = "-max", required = true)
+    private Integer maxSimulationTime;
+
+    @Option(name = "--number-of-laps", aliases = "-laps", required = true)
+    private Integer nLaps;
+
+    @Option(name = "--track-length", aliases =  "-t", required = false)
+    private Integer trackLength;
+
+    @Option(name = "--output-file", aliases = "-of", required = true)
+    private String outputFile;
 
     public String getKartIds() {
         return kartIds;
@@ -19,6 +34,26 @@ public class KartOptions {
 
     public String getNames() {
         return names;
+    }
+
+    public Integer getMinSimulationTime() {
+        return minSimulationTime;
+    }
+
+    public Integer getMaxSimulationTime() {
+        return maxSimulationTime;
+    }
+
+    public Integer getnLaps() {
+        return nLaps;
+    }
+
+    public Integer getTrackLength() {
+        return trackLength;
+    }
+
+    public String getOutputFile() {
+        return outputFile;
     }
 }
 
