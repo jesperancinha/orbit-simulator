@@ -10,5 +10,6 @@
   <modules>
     <module>kart-race-laps-api</module>
     <module>kart-race-laps-app</module>
+    <module>kart-race-laps-csv</module>
   </modules>
 </project>

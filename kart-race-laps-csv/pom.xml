@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>kart-race-laps-main</artifactId>
+        <groupId>jfse</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>jfse</groupId>
+    <artifactId>kart-race-laps-csv</artifactId>
+
+    <properties>
+        <kart.race.laps.api>1.0.0-SNAPSHOT</kart.race.laps.api>
+        <open.csv>3.7</open.csv>
+        <args4j.kohsuke>2.33</args4j.kohsuke>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jfse</groupId>
+            <artifactId>kart-race-laps-api</artifactId>
+            <version>${kart.race.laps.api}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${open.csv}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kohsuke.args4j</groupId>
+            <artifactId>args4j-maven-plugin</artifactId>
+            <version>${args4j.kohsuke}</version>
+        </dependency>
+    </dependencies>
+</project>
