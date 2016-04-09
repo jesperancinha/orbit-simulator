@@ -26,7 +26,7 @@ public class ActivityManagerImpl implements ActivityManager {
         startRace = true;
         final Collection<Driver> drivers = driverManager.getDriverList().values();
         List<Future<Kart>> allDriverWaiter = new ArrayList<>();
-        ExecutorService executor = Executors.newFixedThreadPool(drivers.size());
+        final ExecutorService executor = getExecutorService(drivers);
 
         for (Driver driver : drivers) {
             Future<Kart> future = executor.submit(driver.getKart().startRacing());
@@ -39,6 +39,16 @@ public class ActivityManagerImpl implements ActivityManager {
                 throw new DriverAccidentException(kart.getKartId());
             }
         }
+        shutDownExecutorService(executor);
+    }
+
+    @Override
+    public ExecutorService getExecutorService(Collection<Driver> drivers) {
+        return Executors.newFixedThreadPool(drivers.size());
+    }
+
+    @Override
+    public void shutDownExecutorService(ExecutorService executor) {
         try {
             executor.shutdown();
             executor.awaitTermination(60, TimeUnit.SECONDS);
@@ -51,7 +61,8 @@ public class ActivityManagerImpl implements ActivityManager {
                 System.err.println("ending tasks");
             }
             executor.shutdownNow();
-        }        startRace = false;
+        }
+        startRace = false;
     }
 
     @Override

@@ -22,7 +22,7 @@ public class RaceManagerImpl implements RaceManager {
     private final DriverManager driverManager;
     private final Track track;
     private FastestLap fastestLap;
-    private Winner winne;
+    private Winner winner;
 
     /**
      * @param minTimeForLap In miliseconds
@@ -67,26 +67,37 @@ public class RaceManagerImpl implements RaceManager {
         }
 
         orderResultsByDuration(results);
-
         final Result winningResult = results.get(0);
         final Driver driverWinner = driverManager.getDriverByKartId(winningResult.getKartNumber());
         final Kart winningKart = driverWinner.getKart();
+
+        this.winner = getWinnerFromResult(winningKart);
+        this.fastestLap = getFastestLapFromResult(winningKart, winningResult);
+
+        orderResultListByTimeStamp(results);
+
+        return results;
+    }
+
+    @Override
+    public FastestLap getFastestLapFromResult(Kart winningKart, Result winningResult) {
+        final FastestLap fastestLap = new FastestLapImpl( //
+                winningKart.getKartId(), //
+                winningResult.getDuration(), //
+                winningResult.getLapNumber() //
+        );
+        LOGGER.info(fastestLap.toString());
+        return  fastestLap;
+    }
+
+    @Override
+    public Winner getWinnerFromResult(Kart winningKart) {
         final Winner winner = new WinnerImpl( //
                 winningKart.getKartId(), //
                 winningKart.getCompleteDuration() //
         );
         LOGGER.info(winner.toString());
-
-        final FastestLap fastesLap = new FastestLapImpl( //
-                winningKart.getKartId(), //
-                winningResult.getDuration(), //
-                winningResult.getLapNumber() //
-        );
-        LOGGER.info(fastesLap.toString());
-
-        orderResultListByTimeStamp(results);
-
-        return results;
+       return winner;
     }
 
     private void orderResultsByDuration(List<Result> results) {
