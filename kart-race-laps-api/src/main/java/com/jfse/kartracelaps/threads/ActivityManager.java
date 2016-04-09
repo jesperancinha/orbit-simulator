@@ -11,4 +11,6 @@ public interface ActivityManager {
     void startRace() throws ExecutionException, //
             InterruptedException, //
             DriverAccidentException; //
+
+    boolean isStartRace();
 }

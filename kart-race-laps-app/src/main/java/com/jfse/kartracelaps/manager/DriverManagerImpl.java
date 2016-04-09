@@ -42,4 +42,9 @@ public class DriverManagerImpl implements DriverManager {
     {
         driverList.clear();
     }
+
+    @Override
+    public Integer getnLaps() {
+        return nLaps;
+    }
 }

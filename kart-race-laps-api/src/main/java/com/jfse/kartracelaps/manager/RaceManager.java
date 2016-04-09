@@ -2,6 +2,7 @@ package com.jfse.kartracelaps.manager;
 
 import com.jfse.kartracelaps.exceptions.DriverAccidentException;
 import com.jfse.kartracelaps.objects.Driver;
+import com.jfse.kartracelaps.objects.Result;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -15,4 +16,6 @@ public interface RaceManager {
     void start() throws InterruptedException, ExecutionException, DriverAccidentException;
 
     List<Driver> getAllDrivers();
+
+    List<Result> getResults();
 }

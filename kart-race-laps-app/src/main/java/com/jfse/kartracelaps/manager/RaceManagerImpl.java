@@ -1,12 +1,12 @@
 package com.jfse.kartracelaps.manager;
 
 import com.jfse.kartracelaps.exceptions.DriverAccidentException;
-import com.jfse.kartracelaps.objects.Driver;
-import com.jfse.kartracelaps.objects.Track;
-import com.jfse.kartracelaps.objects.TrackImpl;
+import com.jfse.kartracelaps.objects.*;
 import com.jfse.kartracelaps.threads.ActivityManager;
 import com.jfse.kartracelaps.threads.ActivityManagerImpl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -43,4 +43,26 @@ public class RaceManagerImpl implements RaceManager {
     public List<Driver> getAllDrivers() {
         return driverManager.getDriverList();
     }
+
+    @Override
+    public List<Result> getResults() {
+        final List<Result> results = new ArrayList<>();
+        for (final Driver driver : driverManager.getDriverList()) {
+            for (int i = 1; i <= driverManager.getnLaps(); i++) {
+                final Result result = new ResultImpl(
+                        driver.getName(), //
+                        driver.getKart().getKartId(), //
+                        driver.getKart().getTimeStampByLap(i) //
+                );
+                results.add(result);
+            }
+        }
+
+        Collections.sort(results, //
+                (Result result1, Result result2) //
+                -> result1.getTimeStamp().compareTo(result2.getTimeStamp()));
+
+        return results;
+    }
+
 }

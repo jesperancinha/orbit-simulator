@@ -13,4 +13,6 @@ public interface DriverManager {
     List<Driver> getDriverList();
 
     void restart();
+
+    Integer getnLaps();
 }

@@ -44,6 +44,7 @@ public class ActivityManagerImpl implements ActivityManager {
         startRace = false;
     }
 
+    @Override
     public boolean isStartRace() {
         return startRace;
     }

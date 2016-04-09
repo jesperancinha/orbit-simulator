@@ -2,7 +2,6 @@ package com.jfse.kartracelaps.objects;
 
 import java.text.MessageFormat;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -17,8 +16,6 @@ import java.util.logging.Logger;
 public class KartImpl implements Kart {
     private static final Logger LOGGER = Logger.getLogger(KartImpl.class.getName());
     private static Random RANDOM = new Random();
-    private static DateTimeFormatter DATEFORMATTER =
-            DateTimeFormatter.ofPattern("hh:mm:ss.SSS");
 
     private Map<Integer, LocalTime> lapTimes;
     private Integer kartId;
@@ -85,21 +82,22 @@ public class KartImpl implements Kart {
     public Callable<Kart> startRacing() {
         Callable<Kart> task = () -> {
             try {
-                for (int i = 0; i < nLaps; i++) {
+                for (int i = 1; i <= nLaps; i++) {
                     final Integer simulatedTimeToWait = getSimulatedTimeToWait();
                     LOGGER.log(Level.INFO, //
                             MessageFormat.format("{0} begins lap {1} at {2}", //
                                     this.driver.getName(), //
                                     i, //
-                                    DATEFORMATTER.format(LocalTime.now())) //
+                                    LocalTime.now()) //
                     );
                     TimeUnit.MILLISECONDS.sleep(simulatedTimeToWait);
-                    lapTimes.put(i, LocalTime.now());
+                    final LocalTime registeringTime = LocalTime.now();
+                    lapTimes.put(i, registeringTime);
                     LOGGER.log(Level.INFO, //
                             MessageFormat.format("{0} had finished lap {1} at {2}", //
                                     this.driver.getName(), //
                                     i, //
-                                    DATEFORMATTER.format(LocalTime.now())) //
+                                    registeringTime) //
                     );
                 }
                 this.success = true;
