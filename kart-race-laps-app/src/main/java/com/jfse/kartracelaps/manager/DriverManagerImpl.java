@@ -12,7 +12,7 @@ import java.util.List;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class DriverManagerImpl implements DriverManager {
-    final List<String> driverList;
+    final List<Driver> driverList;
     private Integer minTimeForLap;
     private Integer maxTimeForLap;
     private Integer nLaps;
@@ -29,10 +29,17 @@ public class DriverManagerImpl implements DriverManager {
     public void addDriver(String name, Integer kartId) {
         final Kart kart = new KartImpl(kartId, minTimeForLap, maxTimeForLap, nLaps);
         final Driver driver = new DriverImpl(kart, name);
+        driverList.add(driver);
     }
 
     @Override
-    public List<String> getDriverList() {
+    public List<Driver> getDriverList() {
         return driverList;
+    }
+
+    @Override
+    public void restart()
+    {
+        driverList.clear();
     }
 }

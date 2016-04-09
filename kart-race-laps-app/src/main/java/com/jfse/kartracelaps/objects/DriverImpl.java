@@ -11,6 +11,7 @@ public class DriverImpl implements Driver{
     public DriverImpl(Kart kart, String name)
     {
         this.kart = kart;
+        this.kart.setDriver(this);
         this.name = name;
     }
 

@@ -1,5 +1,7 @@
 package com.jfse.kartracelaps.manager;
 
+import com.jfse.kartracelaps.objects.Driver;
+
 import java.util.List;
 
 /**
@@ -8,5 +10,7 @@ import java.util.List;
 public interface DriverManager {
     void addDriver(String name, Integer kartId);
 
-    List<String> getDriverList();
+    List<Driver> getDriverList();
+
+    void restart();
 }
