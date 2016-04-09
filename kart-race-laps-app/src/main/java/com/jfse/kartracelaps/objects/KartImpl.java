@@ -9,8 +9,10 @@ import java.util.Map;
  */
 public class KartImpl implements Kart {
     private Map<Integer, LocalTime> lapTimes;
+    private Integer kartId;
 
-    public KartImpl(){
+    public KartImpl(Integer kartId){
+        this.kartId = kartId;
         lapTimes = new HashMap<>();
     }
 
@@ -32,5 +34,14 @@ public class KartImpl implements Kart {
     @Override
     public LocalTime getTimeStampByLap(Integer lap) {
         return lapTimes.get(lap);
+    }
+
+    /**
+     * Gets the kart assigned Id
+     * @return
+     */
+    @Override
+    public Integer getKartId() {
+        return kartId;
     }
 }

@@ -9,4 +9,6 @@ public interface Kart {
     void  addTimeStamp(Integer lap, LocalTime timeStamp);
 
     LocalTime getTimeStampByLap(Integer lap);
+
+    Integer getKartId();
 }

@@ -13,7 +13,8 @@ public class KartImplTest {
 
     @Test
     public void addTimeStamp() throws Exception {
-        final Kart kart = new KartImpl();
+        final Integer kartId = 0;
+        final Kart kart = new KartImpl(kartId);
         final Integer lap = 0;
         final LocalTime time = LocalTime.now();
 
