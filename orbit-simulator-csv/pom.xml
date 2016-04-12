@@ -36,7 +36,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.steelzack.kartracelaps.KartRaceMain</mainClass>
+                            <mainClass>com.steelzack.orbitsimulator.OrbitSimulatorMain</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
