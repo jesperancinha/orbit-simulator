@@ -1,6 +1,6 @@
 package com.steelzack.orbitsimulator;
 
-import com.steelzack.orbitsimulator.exceptions.DriverAccidentException;
+import com.steelzack.orbitsimulator.exceptions.PlanetOutOfOrbitException;
 import com.steelzack.orbitsimulator.manager.OrbitManager;
 import com.steelzack.orbitsimulator.manager.OrbitManagerImpl;
 import com.steelzack.orbitsimulator.results.Result;
@@ -24,7 +24,7 @@ public class OrbitSimulatorMain {
     public static void main(String[] args) throws CmdLineException,
             InterruptedException, //
             ExecutionException, //
-            DriverAccidentException, IOException //
+            PlanetOutOfOrbitException, IOException //
     {
         final OrbitSimulatorOptions options = new OrbitSimulatorOptions();
         final CmdLineParser parser = new CmdLineParser(options);

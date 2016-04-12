@@ -14,13 +14,13 @@ public class DriverImplTest {
         final Integer minTimeForLap = 1000;
         final Integer maxTimeForLap = 1000;
         final Integer nLaps = 10;
-        final Kart kart = new PlanetImpl(kartId,  minTimeForLap, maxTimeForLap, nLaps);
+        final Planet kart = new PlanetImpl(kartId,  minTimeForLap, maxTimeForLap, nLaps);
         final String name = "Player 1";
         final Inertia driver = new InertiaImpl(kart, name);
 
 
-        assertSame(kart, driver.getKart());
-        assertSame(kartId, driver.getKart().getKartId());
+        assertSame(kart, driver.getPlanet());
+        assertSame(kartId, driver.getPlanet().getPlanetId());
         assertSame("Player 1", driver.getName());
     }
 }

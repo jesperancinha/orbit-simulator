@@ -1,9 +1,9 @@
 package com.steelzack.orbitsimulator.threads;
 
-import com.steelzack.orbitsimulator.exceptions.DriverAccidentException;
+import com.steelzack.orbitsimulator.exceptions.PlanetOutOfOrbitException;
 import com.steelzack.orbitsimulator.manager.InertiaManager;
 import com.steelzack.orbitsimulator.objects.Inertia;
-import com.steelzack.orbitsimulator.objects.Kart;
+import com.steelzack.orbitsimulator.objects.Planet;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,21 +22,21 @@ public class ActivityManagerImpl implements ActivityManager {
     }
 
     @Override
-    public void startRace() throws ExecutionException, InterruptedException, DriverAccidentException {
+    public void startRace() throws ExecutionException, InterruptedException, PlanetOutOfOrbitException {
         startRace = true;
         final Collection<Inertia> drivers = driverManager.getDriverList().values();
-        List<Future<Kart>> allDriverWaiter = new ArrayList<>();
+        List<Future<Planet>> allDriverWaiter = new ArrayList<>();
         final ExecutorService executor = getExecutorService(drivers);
 
         for (Inertia driver : drivers) {
-            Future<Kart> future = executor.submit(driver.getKart().startRacing());
+            Future<Planet> future = executor.submit(driver.getPlanet().startRacing());
             allDriverWaiter.add(future);
         }
 
-        for (Future<Kart> future : allDriverWaiter) {
-            Kart kart = future.get();
-            if (!kart.isSuccess()) {
-                throw new DriverAccidentException(kart.getKartId());
+        for (Future<Planet> future : allDriverWaiter) {
+            Planet planet = future.get();
+            if (!planet.isSuccess()) {
+                throw new PlanetOutOfOrbitException(planet.getPlanetId());
             }
         }
         shutDownExecutorService(executor);

@@ -16,5 +16,5 @@ public interface InertiaManager {
 
     void restart();
 
-    Integer getnLaps();
+    Integer getOrbitNumber();
 }

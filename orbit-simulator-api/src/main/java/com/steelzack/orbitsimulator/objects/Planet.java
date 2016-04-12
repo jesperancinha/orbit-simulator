@@ -5,16 +5,16 @@ import java.util.concurrent.Callable;
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
-public interface Kart {
+public interface Planet {
     void setDriver(Inertia driver);
 
     void addSnapshot(Integer lap, FreezeMoment snapshot);
 
     FreezeMoment getSnapshotByLap(Integer lap);
 
-    Integer getKartId();
+    Integer getPlanetId();
 
-    Callable<Kart> startRacing();
+    Callable<Planet> startRacing();
 
     Integer getSimulatedTimeToWait() throws InterruptedException;
 

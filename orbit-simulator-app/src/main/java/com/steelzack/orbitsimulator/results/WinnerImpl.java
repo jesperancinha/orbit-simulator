@@ -18,6 +18,6 @@ public class WinnerImpl implements Winner {
 
     @Override
     public String toString(){
-        return MessageFormat.format("Kart {0} is the winner! It only took {1} ms! Congratulations!", planetNumber,totalRaceTime);
+        return MessageFormat.format("Planet {0} is the winner! It only took {1} ms! Congratulations!", planetNumber,totalRaceTime);
     }
 }

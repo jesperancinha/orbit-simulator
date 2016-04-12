@@ -1,13 +1,13 @@
 package com.steelzack.orbitsimulator.manager;
 
-import com.steelzack.orbitsimulator.exceptions.DriverAccidentException;
+import com.steelzack.orbitsimulator.exceptions.PlanetOutOfOrbitException;
 import com.steelzack.orbitsimulator.objects.Inertia;
 import com.steelzack.orbitsimulator.objects.Orbit;
 import com.steelzack.orbitsimulator.objects.OrbitImpl;
+import com.steelzack.orbitsimulator.objects.Planet;
 import com.steelzack.orbitsimulator.results.*;
 import com.steelzack.orbitsimulator.threads.ActivityManager;
 import com.steelzack.orbitsimulator.threads.ActivityManagerImpl;
-import com.steelzack.orbitsimulator.objects.Kart;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,7 +44,7 @@ public class OrbitManagerImpl implements OrbitManager {
     }
 
     @Override
-    public void start() throws InterruptedException, ExecutionException, DriverAccidentException {
+    public void start() throws InterruptedException, ExecutionException, PlanetOutOfOrbitException {
         final ActivityManager activityManager = new ActivityManagerImpl(driverManager);
         activityManager.startRace();
     }
@@ -58,12 +58,12 @@ public class OrbitManagerImpl implements OrbitManager {
     public List<Result> getResults() {
         final List<Result> results = new ArrayList<>();
         for (final Inertia driver : getAllDrivers()) {
-            for (int i = 1; i <= driverManager.getnLaps(); i++) {
+            for (int i = 1; i <= driverManager.getOrbitNumber(); i++) {
                 final Result result = new ResultImpl(
                         driver.getName(), //
-                        driver.getKart().getKartId(), //
-                        driver.getKart().getSnapshotByLap(i).getTimeStamp(), //
-                        driver.getKart().getSnapshotByLap(i).getDuration(),
+                        driver.getPlanet().getPlanetId(), //
+                        driver.getPlanet().getSnapshotByLap(i).getTimeStamp(), //
+                        driver.getPlanet().getSnapshotByLap(i).getDuration(),
                         i);
                 results.add(result);
             }
@@ -72,10 +72,10 @@ public class OrbitManagerImpl implements OrbitManager {
         orderResultsByDuration(results);
         final Result winningResult = results.get(0);
         final Inertia driverWinner = driverManager.getDriverByKartId(winningResult.getPlanetNumber());
-        final Kart winningKart = driverWinner.getKart();
+        final Planet winningPlanet = driverWinner.getPlanet();
 
-        this.winner = getWinnerFromResult(winningKart);
-        this.fastestLap = getFastestLapFromResult(winningKart, winningResult);
+        this.winner = getWinnerFromResult(winningPlanet);
+        this.fastestLap = getFastestLapFromResult(winningPlanet, winningResult);
 
         orderResultListByTimeStamp(results);
 
@@ -83,9 +83,9 @@ public class OrbitManagerImpl implements OrbitManager {
     }
 
     @Override
-    public FastesPlanetOrbit getFastestLapFromResult(Kart winningKart, Result winningResult) {
+    public FastesPlanetOrbit getFastestLapFromResult(Planet winningKart, Result winningResult) {
         final FastesPlanetOrbit fastestLap = new FastestPlanetOrbitImpl( //
-                winningKart.getKartId(), //
+                winningKart.getPlanetId(), //
                 winningResult.getOrbitDuration(), //
                 winningResult.getOrbitNumber() //
         );
@@ -94,9 +94,9 @@ public class OrbitManagerImpl implements OrbitManager {
     }
 
     @Override
-    public Winner getWinnerFromResult(Kart winningKart) {
+    public Winner getWinnerFromResult(Planet winningKart) {
         final Winner winner = new WinnerImpl( //
-                winningKart.getKartId(), //
+                winningKart.getPlanetId(), //
                 winningKart.getCompleteDuration() //
         );
         LOGGER.info(winner.toString());

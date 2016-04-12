@@ -13,7 +13,7 @@ public class FastestPlanetOrbitImpl implements FastesPlanetOrbit {
 
     private Integer number;
 
-    public FastestPlanetOrbitImpl(Integer karNumber, Integer duration, Integer number) {
+        public FastestPlanetOrbitImpl(Integer karNumber, Integer duration, Integer number) {
         this.karNumber = karNumber;
         this.duration = duration;
         this.number = number;
@@ -22,7 +22,7 @@ public class FastestPlanetOrbitImpl implements FastesPlanetOrbit {
     @Override
     public String toString() {
         return MessageFormat.format( //
-                "Kart number {0} was the fasted with {1} ms on lap number {2}", //
+                "Planet number {0} was the fasted with {1} ms on lap number {2}", //
                 karNumber, //
                 duration, //
                 number //

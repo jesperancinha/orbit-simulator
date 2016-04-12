@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
-public class PlanetImpl implements Kart {
+public class PlanetImpl implements Planet {
     private static final Logger LOGGER = Logger.getLogger(PlanetImpl.class.getName());
     private static Random RANDOM = new Random();
 
@@ -70,7 +70,7 @@ public class PlanetImpl implements Kart {
      * @return
      */
     @Override
-    public Integer getKartId() {
+    public Integer getPlanetId() {
         return kartId;
     }
 
@@ -80,8 +80,8 @@ public class PlanetImpl implements Kart {
      * @return The callable function so that can wait for all the karts to finish line.
      */
     @Override
-    public Callable<Kart> startRacing() {
-        Callable<Kart> task = () -> {
+    public Callable<Planet> startRacing() {
+        Callable<Planet> task = () -> {
             try {
                 for (int i = 1; i <= nLaps; i++) {
                     final Integer simulatedTimeToWait = getSimulatedTimeToWait();

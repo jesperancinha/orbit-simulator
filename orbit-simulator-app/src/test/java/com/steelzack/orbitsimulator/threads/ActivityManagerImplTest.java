@@ -2,7 +2,7 @@ package com.steelzack.orbitsimulator.threads;
 
 import com.steelzack.orbitsimulator.manager.InertiaManager;
 import com.steelzack.orbitsimulator.objects.Inertia;
-import com.steelzack.orbitsimulator.objects.Kart;
+import com.steelzack.orbitsimulator.objects.Planet;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Test;
@@ -24,32 +24,32 @@ public class ActivityManagerImplTest {
     @Test
     public void startRace() throws Exception {
         final InertiaManager driverManager = mockery.mock(InertiaManager.class);
-        final Inertia driver = mockery.mock(Inertia.class);
-        final Kart kart = mockery.mock(Kart.class);
+        final Inertia inertia = mockery.mock(Inertia.class);
+        final Planet planet = mockery.mock(Planet.class);
         final ExecutorService executorService= mockery.mock(ExecutorService.class);
-        final Map<Integer,Inertia> drivers = new HashMap<>();
-        final Future<Kart> futureKart = mockery.mock(Future.class);
-        final Callable<Kart> callabaleKart = mockery.mock(Callable.class);
-        drivers.put(0, driver);
+        final Map<Integer,Inertia> inertias = new HashMap<>();
+        final Future<Planet> futurePlanet = mockery.mock(Future.class);
+        final Callable<Planet> callabalePlanet = mockery.mock(Callable.class);
+        inertias.put(0, inertia);
 
 
         mockery.checking(new Expectations(){{
             oneOf(driverManager).getDriverList();
-            will(returnValue(drivers));
+            will(returnValue(inertias));
 
-            oneOf(executorService).submit(callabaleKart);
-            will(returnValue(futureKart));
+            oneOf(executorService).submit(callabalePlanet);
+            will(returnValue(futurePlanet));
 
-            oneOf(driver).getKart();
-            will(returnValue(kart));
+            oneOf(inertia).getPlanet();
+            will(returnValue(planet));
 
-            oneOf(kart).startRacing();
-            will(returnValue(callabaleKart));
+            oneOf(planet).startRacing();
+            will(returnValue(callabalePlanet));
 
-            oneOf(futureKart).get();
-            will(returnValue(kart));
+            oneOf(futurePlanet).get();
+            will(returnValue(planet));
 
-            oneOf(kart).isSuccess();
+            oneOf(planet).isSuccess();
             will(returnValue(true));
 
             oneOf(executorService).shutdown();
