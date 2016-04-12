@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>orbit-simulator-main</artifactId>
-        <groupId>jfse</groupId>
+        <groupId>steelzack</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,7 +13,7 @@
     <artifactId>orbit-simulator-csv</artifactId>
 
     <properties>
-        <kart.race.laps.api>1.0.0-SNAPSHOT</kart.race.laps.api>
+        <planet.race.laps.api>1.0.0-SNAPSHOT</planet.race.laps.api>
         <open.csv>3.7</open.csv>
         <args4j.kohsuke>2.33</args4j.kohsuke>
         <maven.compiler>3.5.1</maven.compiler>
@@ -50,12 +50,12 @@
         <dependency>
             <groupId>jfse</groupId>
             <artifactId>orbit-simulator-api</artifactId>
-            <version>${kart.race.laps.api}</version>
+            <version>${planet.race.laps.api}</version>
         </dependency>
         <dependency>
             <groupId>jfse</groupId>
             <artifactId>orbit-simulator-app</artifactId>
-            <version>${kart.race.laps.api}</version>
+            <version>${planet.race.laps.api}</version>
         </dependency>
         <dependency>
             <groupId>com.opencsv</groupId>

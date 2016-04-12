@@ -19,7 +19,7 @@ public class PlanetImpl implements Planet {
     private static Random RANDOM = new Random();
 
     private Map<Integer, FreezeMoment> lapTimes;
-    private Integer kartId;
+    private Integer planetId;
 
     private final Integer minTimeForLap;
     private final Integer maxTimeForLap;
@@ -29,8 +29,8 @@ public class PlanetImpl implements Planet {
     private Inertia driver;
 
 
-    public PlanetImpl(Integer kartId, Integer minTimeForLap, Integer maxTimeForLap, Integer nLaps) {
-        this.kartId = kartId;
+    public PlanetImpl(Integer planetId, Integer minTimeForLap, Integer maxTimeForLap, Integer nLaps) {
+        this.planetId = planetId;
         this.minTimeForLap = minTimeForLap;
         this.maxTimeForLap = maxTimeForLap;
         this.nLaps = nLaps;
@@ -56,28 +56,28 @@ public class PlanetImpl implements Planet {
     /**
      * Get the timestamp for a lap.
      *
-     * @param lap
+     * @param orbit
      * @return
      */
     @Override
-    public FreezeMoment getSnapshotByLap(Integer lap) {
-        return lapTimes.get(lap);
+    public FreezeMoment getSnapshotByLap(Integer orbit) {
+        return lapTimes.get(orbit);
     }
 
     /**
-     * Gets the kart assigned Id
+     * Gets the planet assigned Id
      *
      * @return
      */
     @Override
     public Integer getPlanetId() {
-        return kartId;
+        return planetId;
     }
 
     /**
-     * Creates the run task for the kart to run
+     * Creates the run task for the planet to run
      *
-     * @return The callable function so that can wait for all the karts to finish line.
+     * @return The callable function so that can wait for all the planets to finish line.
      */
     @Override
     public Callable<Planet> startRacing() {
@@ -86,7 +86,7 @@ public class PlanetImpl implements Planet {
                 for (int i = 1; i <= nLaps; i++) {
                     final Integer simulatedTimeToWait = getSimulatedTimeToWait();
                     LOGGER.log(Level.INFO, //
-                            MessageFormat.format("{0} begins lap {1} at {2}", //
+                            MessageFormat.format("{0} begins orbit {1} at {2}", //
                                     this.driver.getName(), //
                                     i, //
                                     LocalTime.now()) //
@@ -95,7 +95,7 @@ public class PlanetImpl implements Planet {
                     final LocalTime registeringTime = LocalTime.now();
                     lapTimes.put(i, new FreezeMomentImpl(registeringTime, simulatedTimeToWait));
                     LOGGER.log(Level.INFO, //
-                            MessageFormat.format("{0} had finished lap {1} at {2}", //
+                            MessageFormat.format("{0} had finished orbit {1} at {2}", //
                                     this.driver.getName(), //
                                     i, //
                                     registeringTime) //
@@ -104,7 +104,7 @@ public class PlanetImpl implements Planet {
                 this.success = true;
                 return this;
             } catch (InterruptedException e) {
-                LOGGER.log(Level.SEVERE, "A kart is out of track!", e);
+                LOGGER.log(Level.SEVERE, "A planet is out of track!", e);
                 this.success = false;
                 return this;
             }

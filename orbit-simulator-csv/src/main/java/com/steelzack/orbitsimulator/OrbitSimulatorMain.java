@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 public class OrbitSimulatorMain {
 
     public static final String PASSINGTIME = "passingtime";
-    public static final String KART = "kart";
+    public static final String KART = "planet";
 
     public static void main(String[] args) throws CmdLineException,
             InterruptedException, //
@@ -30,9 +30,9 @@ public class OrbitSimulatorMain {
         final CmdLineParser parser = new CmdLineParser(options);
         parser.parseArgument(args);
         final String[] names = options.getNames().split(",");
-        String[] kartIds = null;
+        String[] planetIds = null;
         if (options.getKartIds() != null) {
-            kartIds = options.getKartIds().split(",");
+            planetIds = options.getKartIds().split(",");
         }
 
         final OrbitManager raceManager = new OrbitManagerImpl(
@@ -42,13 +42,13 @@ public class OrbitSimulatorMain {
                 options.getTrackLength() //
         );
 
-        if (kartIds == null) {
+        if (planetIds == null) {
             for (int i = 0; i < names.length; i++) {
                 raceManager.addDriver(names[i], i);
             }
         } else {
             for (int i = 0; i < names.length; i++) {
-                raceManager.addDriver(names[i], Integer.parseInt(kartIds[i]));
+                raceManager.addDriver(names[i], Integer.parseInt(planetIds[i]));
             }
         }
         raceManager.start();

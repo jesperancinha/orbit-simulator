@@ -9,7 +9,7 @@ public class KartRaceMainTest {
         OrbitSimulatorMain.main(new String[]{ //
                 "--names-comma-separated", //
                 "racer1,racer2,racer3,racer4,racer5",
-                "--kart-ids-comma-separated", //
+                "--planet-ids-comma-separated", //
                 "1,2,3,4,5",
                 "--min-simulation-time", //
                 "100",

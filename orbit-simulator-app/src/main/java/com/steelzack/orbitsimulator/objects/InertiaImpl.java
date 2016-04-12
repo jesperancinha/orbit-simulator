@@ -4,24 +4,24 @@ package com.steelzack.orbitsimulator.objects;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class InertiaImpl implements Inertia {
-    private Planet kart;
+    private Planet planet;
 
     private String name;
 
-    public InertiaImpl(Planet kart, String name)
+    public InertiaImpl(Planet planet, String name)
     {
-        this.kart = kart;
-        this.kart.setDriver(this);
+        this.planet = planet;
+        this.planet.setDriver(this);
         this.name = name;
     }
 
     /**
-     * Inertia may need to change kart
-     * @param kart Kart
+     * Inertia may need to change planet
+     * @param planet Kart
      */
     @Override
-    public void setKart(Planet kart) {
-        this.kart = kart;
+    public void setKart(Planet planet) {
+        this.planet = planet;
     }
 
     /**
@@ -30,7 +30,7 @@ public class InertiaImpl implements Inertia {
      */
     @Override
     public Planet getPlanet() {
-        return kart;
+        return planet;
     }
 
     /**

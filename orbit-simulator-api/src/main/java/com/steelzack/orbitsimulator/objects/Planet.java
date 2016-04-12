@@ -10,7 +10,7 @@ public interface Planet {
 
     void addSnapshot(Integer lap, FreezeMoment snapshot);
 
-    FreezeMoment getSnapshotByLap(Integer lap);
+    FreezeMoment getSnapshotByLap(Integer orbit);
 
     Integer getPlanetId();
 

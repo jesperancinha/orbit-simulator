@@ -16,6 +16,6 @@ public class NamePlanetMismatchException extends Exception {
 
     @Override
     public String getMessage() {
-        return MessageFormat.format("Missmatch between names: {0} and kartIds {1}", names, karIds);
+        return MessageFormat.format("Missmatch between names: {0} and planetIds {1}", names, karIds);
     }
 }

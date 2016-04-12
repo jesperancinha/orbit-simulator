@@ -8,19 +8,19 @@ import com.opencsv.bean.CsvBind;
 public class ResultBean {
 
     @CsvBind
-    private String kart;
+    private String planet;
 
     @CsvBind
     private String passingtime;
 
 
-    public ResultBean(String kart, String passingtime) {
-        this.kart = kart;
+    public ResultBean(String planet, String passingtime) {
+        this.planet = planet;
         this.passingtime = passingtime;
     }
 
     public String getKart() {
-        return kart;
+        return planet;
     }
 
     public String getPassingtime() {

@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutionException;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public interface OrbitManager {
-    void addDriver(String name, Integer kartId);
+    void addDriver(String name, Integer planetId);
 
     void start() throws InterruptedException, ExecutionException, PlanetOutOfOrbitException;
 

@@ -8,11 +8,11 @@ import java.util.Map;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public interface InertiaManager {
-    void addDriver(String name, Integer kartId);
+    void addDriver(String name, Integer planetId);
 
     Map<Integer, Inertia> getDriverList();
 
-    Inertia getDriverByKartId(Integer kartId);
+    Inertia getDriverByKartId(Integer planetId);
 
     void restart();
 

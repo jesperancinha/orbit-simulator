@@ -11,8 +11,8 @@ public class WinnerImpl implements Winner {
 
     private Integer totalRaceTime;
 
-    public WinnerImpl(Integer kartNumber, Integer totalRaceTime) {
-        this.planetNumber = kartNumber;
+    public WinnerImpl(Integer planetNumber, Integer totalRaceTime) {
+        this.planetNumber = planetNumber;
         this.totalRaceTime = totalRaceTime;
     }
 

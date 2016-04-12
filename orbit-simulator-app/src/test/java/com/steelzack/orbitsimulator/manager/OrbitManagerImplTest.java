@@ -23,7 +23,7 @@ public class OrbitManagerImplTest {
 
         final FastesPlanetOrbit fastestLap = raceManager.getFastestLapFromResult(testWinninPlanet, testWinningResult);
 
-        assertEquals("Planet number 0 was the fasted with 400 ms on lap number 3", fastestLap.toString());
+        assertEquals("Planet number 0 was the fasted with 400 ms on orbit number 3", fastestLap.toString());
     }
 
     @Test

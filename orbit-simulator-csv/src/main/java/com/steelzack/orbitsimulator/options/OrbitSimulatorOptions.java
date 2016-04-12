@@ -10,8 +10,8 @@ public class OrbitSimulatorOptions {
     @Option(name = "--names-comma-separated", aliases = "-n", required = true)
     private String names;
 
-    @Option(name = "--kart-ids-comma-separated", aliases = "-k", required = false)
-    private String kartIds = null;
+    @Option(name = "--planet-ids-comma-separated", aliases = "-k", required = false)
+    private String planetIds = null;
 
     @Option(name = "--min-simulation-time", aliases = "-min", required = true)
     private Integer minSimulationTime;
@@ -29,7 +29,7 @@ public class OrbitSimulatorOptions {
     private String outputFile;
 
     public String getKartIds() {
-        return kartIds;
+        return planetIds;
     }
 
     public String getNames() {

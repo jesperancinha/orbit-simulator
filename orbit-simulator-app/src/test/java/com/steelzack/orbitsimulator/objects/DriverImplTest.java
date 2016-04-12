@@ -10,17 +10,17 @@ import static org.junit.Assert.assertSame;
 public class DriverImplTest {
     @Test
     public void getKart() throws Exception {
-        final Integer kartId = 0;
+        final Integer planetId = 0;
         final Integer minTimeForLap = 1000;
         final Integer maxTimeForLap = 1000;
         final Integer nLaps = 10;
-        final Planet kart = new PlanetImpl(kartId,  minTimeForLap, maxTimeForLap, nLaps);
+        final Planet planet = new PlanetImpl(planetId,  minTimeForLap, maxTimeForLap, nLaps);
         final String name = "Player 1";
-        final Inertia driver = new InertiaImpl(kart, name);
+        final Inertia driver = new InertiaImpl(planet, name);
 
 
-        assertSame(kart, driver.getPlanet());
-        assertSame(kartId, driver.getPlanet().getPlanetId());
+        assertSame(planet, driver.getPlanet());
+        assertSame(planetId, driver.getPlanet().getPlanetId());
         assertSame("Player 1", driver.getName());
     }
 }

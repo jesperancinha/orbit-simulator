@@ -39,8 +39,8 @@ public class OrbitManagerImpl implements OrbitManager {
     }
 
     @Override
-    public void addDriver(String name, Integer kartId) {
-        driverManager.addDriver(name, kartId);
+    public void addDriver(String name, Integer planetId) {
+        driverManager.addDriver(name, planetId);
     }
 
     @Override

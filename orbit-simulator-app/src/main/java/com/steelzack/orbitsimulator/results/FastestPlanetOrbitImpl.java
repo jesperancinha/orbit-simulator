@@ -22,7 +22,7 @@ public class FastestPlanetOrbitImpl implements FastesPlanetOrbit {
     @Override
     public String toString() {
         return MessageFormat.format( //
-                "Planet number {0} was the fasted with {1} ms on lap number {2}", //
+                "Planet number {0} was the fasted with {1} ms on orbit number {2}", //
                 karNumber, //
                 duration, //
                 number //
