@@ -1,4 +1,4 @@
-## Kart race laps
+## Orbit simulator
 
 Here is a quick description on how to run this example:
 

@@ -1,4 +1,4 @@
-## Kart race laps CSV generator
+## Orbit simulator CSV generator
 
 This is the way to run the race simulator.
 
