@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>jfse</groupId>
-    <artifactId>kart-race-laps-api</artifactId>
+    <artifactId>orbit-simulator-api</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>kart-race-laps-api</name>
+    <name>orbit-simulator-api</name>
     <url>http://maven.apache.org</url>
 
     <properties>
