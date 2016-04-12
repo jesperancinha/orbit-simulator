@@ -3,7 +3,7 @@ package com.steelzack.orbitsimulator.manager;
 import com.steelzack.orbitsimulator.exceptions.DriverAccidentException;
 import com.steelzack.orbitsimulator.objects.Inertia;
 import com.steelzack.orbitsimulator.objects.Kart;
-import com.steelzack.orbitsimulator.results.FastestLap;
+import com.steelzack.orbitsimulator.results.FastesPlanetOrbit;
 import com.steelzack.orbitsimulator.results.Result;
 import com.steelzack.orbitsimulator.results.Winner;
 
@@ -23,7 +23,7 @@ public interface OrbitManager {
 
     List<Result> getResults();
 
-    FastestLap getFastestLapFromResult(Kart winningKart, Result winningResult);
+    FastesPlanetOrbit getFastestLapFromResult(Kart winningKart, Result winningResult);
 
     Winner getWinnerFromResult(Kart winningKart);
 }

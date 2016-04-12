@@ -10,52 +10,53 @@ import java.time.format.DateTimeFormatter;
 public class ResultImpl implements Result {
     private static DateTimeFormatter DATEFORMATTER =
             DateTimeFormatter.ofPattern("HH:mm:ss");
-    private String driverName;
-    private Integer kartNumber;
-    private LocalTime timeStamp;
-    private Integer duration;
-    private Integer lapNumber;
+    private String inertiaName;
+    private Integer planetNumber;
+    private LocalTime timeStampForOrbit;
+    private Integer orbitDuration;
+    private Integer orbitNumber;
 
-    public ResultImpl(String driverName, Integer kartNumber, LocalTime timeStamp, Integer duration, Integer lapNumber) {
-        this.driverName = driverName;
-        this.kartNumber = kartNumber;
-        this.timeStamp = timeStamp;
-        this.duration = duration;
-        this.lapNumber = lapNumber;
+    public ResultImpl( //
+                       String inertiaName, //
+                       Integer planetNumber, //
+                       LocalTime timeStampForOrbit, //
+                       Integer orbitDuration, //
+                       Integer orbitNumber //
+    ) {
+        this.inertiaName = inertiaName;
+        this.planetNumber = planetNumber;
+        this.timeStampForOrbit = timeStampForOrbit;
+        this.orbitDuration = orbitDuration;
+        this.orbitNumber = orbitNumber;
     }
 
-    @Override
-    public String getDriverName() {
-        return driverName;
+    public String getInertiaName() {
+        return inertiaName;
     }
 
-    @Override
-    public Integer getKartNumber() {
-        return kartNumber;
+    public Integer getPlanetNumber() {
+        return planetNumber;
     }
 
-    @Override
-    public LocalTime getTimeStamp() {
-        return timeStamp;
+    public LocalTime getTimeStampForOrbit() {
+        return timeStampForOrbit;
     }
 
     @Override
     public String getTimeStampString() {
-        return DATEFORMATTER.format(timeStamp);
+        return DATEFORMATTER.format(timeStampForOrbit);
     }
 
-    @Override
-    public Integer getDuration() {
-        return duration;
+    public Integer getOrbitDuration() {
+        return orbitDuration;
     }
 
     @Override
     public String toString() {
-        return driverName.concat(",").concat(kartNumber.toString()).concat(",").concat(getTimeStampString());
+        return inertiaName.concat(",").concat(planetNumber.toString()).concat(",").concat(getTimeStampString());
     }
 
-    @Override
-    public Integer getLapNumber() {
-        return lapNumber;
+    public Integer getOrbitNumber() {
+        return orbitNumber;
     }
 }

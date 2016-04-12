@@ -5,7 +5,7 @@ import java.text.MessageFormat;
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
-public class FastestLapImpl implements FastestLap {
+public class FastestPlanetOrbitImpl implements FastesPlanetOrbit {
 
     private Integer karNumber;
 
@@ -13,7 +13,7 @@ public class FastestLapImpl implements FastestLap {
 
     private Integer number;
 
-    public FastestLapImpl(Integer karNumber, Integer duration, Integer number) {
+    public FastestPlanetOrbitImpl(Integer karNumber, Integer duration, Integer number) {
         this.karNumber = karNumber;
         this.duration = duration;
         this.number = number;

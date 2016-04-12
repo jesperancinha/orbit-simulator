@@ -7,17 +7,17 @@ import java.text.MessageFormat;
  */
 public class WinnerImpl implements Winner {
 
-    private Integer kartNumber;
+    private Integer planetNumber;
 
     private Integer totalRaceTime;
 
     public WinnerImpl(Integer kartNumber, Integer totalRaceTime) {
-        this.kartNumber = kartNumber;
+        this.planetNumber = kartNumber;
         this.totalRaceTime = totalRaceTime;
     }
 
     @Override
     public String toString(){
-        return MessageFormat.format("Kart {0} is the winner! It only took {1} ms! Congratulations!", kartNumber,totalRaceTime);
+        return MessageFormat.format("Kart {0} is the winner! It only took {1} ms! Congratulations!", planetNumber,totalRaceTime);
     }
 }

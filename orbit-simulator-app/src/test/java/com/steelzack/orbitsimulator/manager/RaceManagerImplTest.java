@@ -1,7 +1,7 @@
 package com.steelzack.orbitsimulator.manager;
 
 import com.steelzack.orbitsimulator.objects.PlanetImpl;
-import com.steelzack.orbitsimulator.results.FastestLap;
+import com.steelzack.orbitsimulator.results.FastesPlanetOrbit;
 import com.steelzack.orbitsimulator.results.Result;
 import com.steelzack.orbitsimulator.results.ResultImpl;
 import com.steelzack.orbitsimulator.results.Winner;
@@ -21,7 +21,7 @@ public class RaceManagerImplTest {
         final PlanetImpl testWinninKart = new PlanetImpl(0, 100, 150, 10);
         final ResultImpl testWinningResult = new ResultImpl("Test", 0, LocalTime.now(), 400, 3);
 
-        final FastestLap fastestLap = raceManager.getFastestLapFromResult(testWinninKart, testWinningResult);
+        final FastesPlanetOrbit fastestLap = raceManager.getFastestLapFromResult(testWinninKart, testWinningResult);
 
         assertEquals("Kart number 0 was the fasted with 400 ms on lap number 3", fastestLap.toString());
     }

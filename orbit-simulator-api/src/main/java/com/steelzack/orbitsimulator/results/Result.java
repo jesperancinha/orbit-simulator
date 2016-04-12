@@ -6,15 +6,15 @@ import java.time.LocalTime;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public interface Result {
-    String getDriverName();
+    String getInertiaName();
 
-    Integer getKartNumber();
+    Integer getPlanetNumber();
 
-    LocalTime getTimeStamp();
+    LocalTime getTimeStampForOrbit();
 
     String getTimeStampString();
 
-    Integer getDuration();
+    Integer getOrbitDuration();
 
-    Integer getLapNumber();
+    Integer getOrbitNumber();
 }

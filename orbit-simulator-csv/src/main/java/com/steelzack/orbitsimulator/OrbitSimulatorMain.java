@@ -61,7 +61,7 @@ public class OrbitSimulatorMain {
         final CSVWriter writer = new CSVWriter(new FileWriter(outputFile), '\t');
         writer.writeNext(new String[]{KART, PASSINGTIME});
         for (Result result : raceManager.getResults()) {
-            writer.writeNext(new String[]{result.getKartNumber().toString(), result.getTimeStampString()});
+            writer.writeNext(new String[]{result.getPlanetNumber().toString(), result.getTimeStampString()});
         }
         writer.flush();
         writer.close();

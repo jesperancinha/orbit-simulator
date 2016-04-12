@@ -24,7 +24,7 @@ public class OrbitManagerImpl implements OrbitManager {
 
     private final InertiaManager driverManager;
     private final Orbit track;
-    private FastestLap fastestLap;
+    private FastesPlanetOrbit fastestLap;
     private Winner winner;
 
     /**
@@ -71,7 +71,7 @@ public class OrbitManagerImpl implements OrbitManager {
 
         orderResultsByDuration(results);
         final Result winningResult = results.get(0);
-        final Inertia driverWinner = driverManager.getDriverByKartId(winningResult.getKartNumber());
+        final Inertia driverWinner = driverManager.getDriverByKartId(winningResult.getPlanetNumber());
         final Kart winningKart = driverWinner.getKart();
 
         this.winner = getWinnerFromResult(winningKart);
@@ -83,11 +83,11 @@ public class OrbitManagerImpl implements OrbitManager {
     }
 
     @Override
-    public FastestLap getFastestLapFromResult(Kart winningKart, Result winningResult) {
-        final FastestLap fastestLap = new FastestLapImpl( //
+    public FastesPlanetOrbit getFastestLapFromResult(Kart winningKart, Result winningResult) {
+        final FastesPlanetOrbit fastestLap = new FastestPlanetOrbitImpl( //
                 winningKart.getKartId(), //
-                winningResult.getDuration(), //
-                winningResult.getLapNumber() //
+                winningResult.getOrbitDuration(), //
+                winningResult.getOrbitNumber() //
         );
         LOGGER.info(fastestLap.toString());
         return  fastestLap;
@@ -106,13 +106,13 @@ public class OrbitManagerImpl implements OrbitManager {
     private void orderResultsByDuration(List<Result> results) {
         Collections.sort(results, //
                 (Result result1, Result result2) //
-                        -> result1.getDuration().compareTo(result2.getDuration()));
+                        -> result1.getOrbitDuration().compareTo(result2.getOrbitDuration()));
     }
 
     private void orderResultListByTimeStamp(List<Result> results) {
         Collections.sort(results, //
                 (Result result1, Result result2) //
-                        -> result1.getTimeStamp().compareTo(result2.getTimeStamp()));
+                        -> result1.getTimeStampForOrbit().compareTo(result2.getTimeStampForOrbit()));
     }
 
 }
