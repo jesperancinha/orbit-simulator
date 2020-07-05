@@ -32,8 +32,6 @@ java -jar target/orbit-simulator-csv-1.0.0-SNAPSHOT-jar-with-dependencies.jar -n
 
 * https://www.grc.nasa.gov/www/k-12/rocket/corbit.html
 
-
-
 *Note: The code presented was initially intended to be used for a race game. That is not the case anymore, but the base code stays for record*
 
 ## About me 👨🏽‍💻🚀
