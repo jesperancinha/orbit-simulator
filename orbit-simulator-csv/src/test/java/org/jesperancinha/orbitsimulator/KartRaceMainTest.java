@@ -8,7 +8,6 @@ import org.junit.Test;
  */
 public class KartRaceMainTest {
     @Test
-    @Ignore
     public void main() throws Exception {
         OrbitSimulatorMain.main(new String[]{
                 "--names-comma-separated",
