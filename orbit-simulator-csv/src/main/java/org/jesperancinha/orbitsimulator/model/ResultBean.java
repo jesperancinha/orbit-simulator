@@ -1,16 +1,16 @@
 package org.jesperancinha.orbitsimulator.model;
 
-import com.opencsv.bean.CsvBind;
+import com.opencsv.bean.CsvBindByName;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class ResultBean {
 
-    @CsvBind
+    @CsvBindByName(column = "planet")
     private String planet;
 
-    @CsvBind
+    @CsvBindByName(column = "passingtime")
     private String passingtime;
 
 

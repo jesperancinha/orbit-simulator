@@ -58,7 +58,7 @@ public class OrbitSimulatorMain {
     }
 
     private static void writeResultsToCsvFile(OrbitManager raceManager, String outputFile) throws IOException {
-        final CSVWriter writer = new CSVWriter(new FileWriter(outputFile), '\t');
+        final CSVWriter writer = new CSVWriter(new FileWriter(outputFile));
         writer.writeNext(new String[]{KART, PASSINGTIME});
         for (Result result : raceManager.getResults()) {
             writer.writeNext(new String[]{result.getPlanetNumber().toString(), result.getTimeStampString()});
