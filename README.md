@@ -5,6 +5,14 @@
 [![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=%20Checkout%20this%20%40github%20repo%20by%20%40joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB%3A%20https%3A//github.com/jesperancinha/orbit-simulator)
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=orbit-simulator%20🪐&color=informational)](https://github.com/jesperancinha/orbit-simulator)
 
+[![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+
+[![orbit-simulator](https://github.com/jesperancinha/orbit-simulator/actions/workflows/orbit-simulator.yml/badge.svg)](https://github.com/jesperancinha/orbit-simulator/actions/workflows/orbit-simulator.yml)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/88b8779c26da429ca7e9c7ebabef8679)](https://www.codacy.com/gh/jesperancinha/orbit-simulator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/orbit-simulator&amp;utm_campaign=Badge_Grade)
+
+[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/orbit-simulator/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/orbit-simulator?branch=master)
+
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/orbit-simulator.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/orbit-simulator.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/orbit-simulator.svg)](#)
