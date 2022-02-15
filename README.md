@@ -11,7 +11,9 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/88b8779c26da429ca7e9c7ebabef8679)](https://www.codacy.com/gh/jesperancinha/orbit-simulator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/orbit-simulator&amp;utm_campaign=Badge_Grade)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/88b8779c26da429ca7e9c7ebabef8679)](https://www.codacy.com/gh/jesperancinha/orbit-simulator/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/orbit-simulator&utm_campaign=Badge_Coverage)
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/orbit-simulator/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/orbit-simulator?branch=master)
+[![codecov](https://codecov.io/gh/jesperancinha/orbit-simulator/branch/master/graph/badge.svg?token=Hf6KTdVR9e)](https://codecov.io/gh/jesperancinha/orbit-simulator)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/orbit-simulator.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/orbit-simulator.svg)](#)
