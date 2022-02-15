@@ -6,7 +6,7 @@ This project is intended to be a realtime orbiting planets simulation.
 
 This is just a codebase that intends to explore the multithreading world.
 
-More updates comming soon...
+More updates coming soon...
 
 ## Build
 
@@ -33,6 +33,12 @@ java -jar target/orbit-simulator-csv-1.0.0-SNAPSHOT-jar-with-dependencies.jar -n
 * https://www.grc.nasa.gov/www/k-12/rocket/corbit.html
 
 *Note: The code presented was initially intended to be used for a race game. That is not the case anymore, but the base code stays for record*
+
+## Buy me a coffee
+
+I hope you enjoyed this repository. If you did, you can optionally please buy me a coffee, which supports me in constantly improve and make new free content regularly for everyone. Thank you so much!
+
+[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=jesperancinha&button_colour=046c46&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00 "title")](https://www.buymeacoffee.com/jesperancinha)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
