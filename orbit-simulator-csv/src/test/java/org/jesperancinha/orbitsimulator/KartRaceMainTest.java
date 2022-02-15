@@ -1,10 +1,13 @@
 package org.jesperancinha.orbitsimulator;
 
+import org.junit.Ignore;
+
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class KartRaceMainTest {
     @org.junit.Test
+    @Ignore
     public void main() throws Exception {
         OrbitSimulatorMain.main(new String[]{ //
                 "--names-comma-separated", //
