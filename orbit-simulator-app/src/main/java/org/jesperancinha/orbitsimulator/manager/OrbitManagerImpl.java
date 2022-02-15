@@ -5,7 +5,6 @@ import org.jesperancinha.orbitsimulator.objects.Inertia;
 import org.jesperancinha.orbitsimulator.objects.Orbit;
 import org.jesperancinha.orbitsimulator.objects.OrbitImpl;
 import org.jesperancinha.orbitsimulator.objects.Planet;
-import com.steelzack.orbitsimulator.results.*;
 import org.jesperancinha.orbitsimulator.results.FastesPlanetOrbit;
 import org.jesperancinha.orbitsimulator.results.FastestPlanetOrbitImpl;
 import org.jesperancinha.orbitsimulator.results.Result;
@@ -96,7 +95,7 @@ public class OrbitManagerImpl implements OrbitManager {
                 winningResult.getOrbitNumber() //
         );
         LOGGER.info(fastestLap.toString());
-        return  fastestLap;
+        return fastestLap;
     }
 
     @Override
@@ -106,7 +105,7 @@ public class OrbitManagerImpl implements OrbitManager {
                 winningKart.getCompleteDuration() //
         );
         LOGGER.info(winner.toString());
-       return winner;
+        return winner;
     }
 
     private void orderResultsByDuration(List<Result> results) {
