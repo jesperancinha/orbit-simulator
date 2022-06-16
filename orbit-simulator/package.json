@@ -18,7 +18,7 @@
     "es6-shim": "^0.35.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.5",
-    "zone.js": "0.11.5"
+    "zone.js": "0.11.6"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
