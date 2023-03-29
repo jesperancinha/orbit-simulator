@@ -21,7 +21,7 @@
     "zone.js": "0.13.0"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
+    "concurrently": "^8.0.1",
     "lite-server": "^2.2.0",
     "typescript": "^5.0.2",
     "typings":"^2.1.1"
