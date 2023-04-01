@@ -1,8 +1,7 @@
 name: orbit-simulator-pull-request
 
 on:
-  pull_request:
-    branches: [ master ]
+  pull_request
 
 jobs:
   build:
