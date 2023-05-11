@@ -1,7 +1,10 @@
 name: orbit-simulator-pull-request
 
 on:
-  pull_request
+  push:
+    branches:
+      - 'Bump**'
+  pull_request:
 
 jobs:
   build:
