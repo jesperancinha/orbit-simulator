@@ -22,7 +22,7 @@
         <planet.race.laps.api>1.0.0-SNAPSHOT</planet.race.laps.api>
         <jmock.junit4>2.13.1</jmock.junit4>
         <open.csv>5.9</open.csv>
-        <picocli.version>4.7.5</picocli.version>
+        <picocli.version>4.7.6</picocli.version>
     </properties>
 
     <modules>
