@@ -47,6 +47,19 @@ The following is an example on how to run from the command line:
 java -jar target/orbit-simulator-csv-1.0.0-SNAPSHOT-jar-with-dependencies.jar -n planet1,planet2,planet3,planet4,planet5 -k 1,2,3,4,5 -min 1000 -max 1500 -laps 10 -t 1000 -of /tmp/results.csv
 ```
 
+---
+
+## Claude
+
+Prompt claude with the following:
+
+### Run all skills
+```text
+please run skills annotations, kotlin, angular, parallel, docker, spring, jvm, and spring-test on this project
+```
+
+---
+
 ## References
 
 * http://www.phy6.org/stargaze/Smotion.htm
