@@ -6,8 +6,8 @@ import java.text.MessageFormat;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class NamePlanetMismatchException extends Exception {
-    private String names;
-    private String karIds;
+    private final String names;
+    private final String karIds;
 
     public NamePlanetMismatchException(String names, String karIds) {
         this.names = names;

@@ -13,9 +13,9 @@ import java.util.Map;
  */
 public class InertiaManagerImpl implements InertiaManager {
     final Map<Integer, Inertia> driverList;
-    private Integer minTimeForLap;
-    private Integer maxTimeForLap;
-    private Integer orbitNumber;
+    private final Integer minTimeForLap;
+    private final Integer maxTimeForLap;
+    private final Integer orbitNumber;
 
     public InertiaManagerImpl(Integer minTimeForLap, Integer maxTimeForLap, Integer nLaps) {
         this.minTimeForLap = minTimeForLap;

@@ -16,10 +16,10 @@ import java.util.logging.Logger;
  */
 public class PlanetImpl implements Planet {
     private static final Logger LOGGER = Logger.getLogger(PlanetImpl.class.getName());
-    private static Random RANDOM = new Random();
+    private static final Random RANDOM = new Random();
 
-    private Map<Integer, FreezeMoment> lapTimes;
-    private Integer planetId;
+    private final Map<Integer, FreezeMoment> lapTimes;
+    private final Integer planetId;
 
     private final Integer minTimeForLap;
     private final Integer maxTimeForLap;

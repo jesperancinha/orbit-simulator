@@ -8,10 +8,10 @@ import com.opencsv.bean.CsvBindByName;
 public class ResultBean {
 
     @CsvBindByName(column = "planet")
-    private String planet;
+    private final String planet;
 
     @CsvBindByName(column = "passingtime")
-    private String passingtime;
+    private final String passingtime;
 
 
     public ResultBean(String planet, String passingtime) {

@@ -1,10 +1,10 @@
 package org.jesperancinha.orbitsimulator.objects;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.

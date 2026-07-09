@@ -5,11 +5,11 @@ import java.text.MessageFormat;
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
-public class PlanetOutOfOrbitException extends Exception{
+public class PlanetOutOfOrbitException extends Exception {
 
-    private Integer inertiaId;
+    private final Integer inertiaId;
 
-    public PlanetOutOfOrbitException(Integer inertiaId){
+    public PlanetOutOfOrbitException(Integer inertiaId) {
         this.inertiaId = inertiaId;
     }
 

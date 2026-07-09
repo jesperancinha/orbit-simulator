@@ -6,10 +6,9 @@ package org.jesperancinha.orbitsimulator.objects;
 public class InertiaImpl implements Inertia {
     private Planet planet;
 
-    private String name;
+    private final String name;
 
-    public InertiaImpl(Planet planet, String name)
-    {
+    public InertiaImpl(Planet planet, String name) {
         this.planet = planet;
         this.planet.setDriver(this);
         this.name = name;

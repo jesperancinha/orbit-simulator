@@ -1,7 +1,6 @@
 package org.jesperancinha.orbitsimulator;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.

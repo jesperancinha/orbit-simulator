@@ -6,9 +6,9 @@ import java.time.LocalTime;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class FreezeMomentImpl implements FreezeMoment {
-    private LocalTime timeStamp;
+    private final LocalTime timeStamp;
 
-    private Integer duration;
+    private final Integer duration;
 
     public FreezeMomentImpl(LocalTime timeStamp, Integer duration) {
         this.timeStamp = timeStamp;

@@ -1,8 +1,8 @@
 package org.jesperancinha.orbitsimulator.objects;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.

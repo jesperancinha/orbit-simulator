@@ -16,7 +16,7 @@ import org.jesperancinha.orbitsimulator.threads.ActivityManagerImpl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
@@ -109,15 +109,11 @@ public class OrbitManagerImpl implements OrbitManager {
     }
 
     private void orderResultsByDuration(List<Result> results) {
-        Collections.sort(results, //
-                (Result result1, Result result2) //
-                        -> result1.getOrbitDuration().compareTo(result2.getOrbitDuration()));
+        results.sort(Comparator.comparing(Result::getOrbitDuration));
     }
 
     private void orderResultListByTimeStamp(List<Result> results) {
-        Collections.sort(results, //
-                (Result result1, Result result2) //
-                        -> result1.getTimeStampForOrbit().compareTo(result2.getTimeStampForOrbit()));
+        results.sort(Comparator.comparing(Result::getTimeStampForOrbit));
     }
 
 }

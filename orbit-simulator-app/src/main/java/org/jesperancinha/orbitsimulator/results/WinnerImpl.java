@@ -7,9 +7,9 @@ import java.text.MessageFormat;
  */
 public class WinnerImpl implements Winner {
 
-    private Integer planetNumber;
+    private final Integer planetNumber;
 
-    private Integer totalRaceTime;
+    private final Integer totalRaceTime;
 
     public WinnerImpl(Integer planetNumber, Integer totalRaceTime) {
         this.planetNumber = planetNumber;
@@ -17,7 +17,7 @@ public class WinnerImpl implements Winner {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return MessageFormat.format("Planet {0} is the winner! It only took {1} ms! Congratulations!", planetNumber,totalRaceTime);
     }
 }

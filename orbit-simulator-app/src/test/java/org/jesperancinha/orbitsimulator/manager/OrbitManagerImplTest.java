@@ -5,11 +5,11 @@ import org.jesperancinha.orbitsimulator.results.FastesPlanetOrbit;
 import org.jesperancinha.orbitsimulator.results.Result;
 import org.jesperancinha.orbitsimulator.results.ResultImpl;
 import org.jesperancinha.orbitsimulator.results.Winner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by joaofilipesabinoesperancinha on 09-04-16.

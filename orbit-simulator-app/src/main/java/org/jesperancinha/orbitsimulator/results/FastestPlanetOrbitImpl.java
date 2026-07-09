@@ -7,13 +7,13 @@ import java.text.MessageFormat;
  */
 public class FastestPlanetOrbitImpl implements FastesPlanetOrbit {
 
-    private Integer karNumber;
+    private final Integer karNumber;
 
-    private Integer duration;
+    private final Integer duration;
 
-    private Integer number;
+    private final Integer number;
 
-        public FastestPlanetOrbitImpl(Integer karNumber, Integer duration, Integer number) {
+    public FastestPlanetOrbitImpl(Integer karNumber, Integer duration, Integer number) {
         this.karNumber = karNumber;
         this.duration = duration;
         this.number = number;

@@ -8,13 +8,13 @@ import java.time.format.DateTimeFormatter;
  * Created by joaofilipesabinoesperancinha on 09-04-16.
  */
 public class ResultImpl implements Result {
-    private static DateTimeFormatter DATEFORMATTER =
+    private static final DateTimeFormatter DATE_FORMATTER =
             DateTimeFormatter.ofPattern("HH:mm:ss");
-    private String inertiaName;
-    private Integer planetNumber;
-    private LocalTime timeStampForOrbit;
-    private Integer orbitDuration;
-    private Integer orbitNumber;
+    private final String inertiaName;
+    private final Integer planetNumber;
+    private final LocalTime timeStampForOrbit;
+    private final Integer orbitDuration;
+    private final Integer orbitNumber;
 
     public ResultImpl( //
                        String inertiaName, //
@@ -44,7 +44,7 @@ public class ResultImpl implements Result {
 
     @Override
     public String getTimeStampString() {
-        return DATEFORMATTER.format(timeStampForOrbit);
+        return DATE_FORMATTER.format(timeStampForOrbit);
     }
 
     public Integer getOrbitDuration() {

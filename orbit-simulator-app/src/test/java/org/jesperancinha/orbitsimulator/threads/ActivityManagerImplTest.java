@@ -5,7 +5,7 @@ import org.jesperancinha.orbitsimulator.objects.Inertia;
 import org.jesperancinha.orbitsimulator.objects.Planet;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
 import java.util.HashMap;
