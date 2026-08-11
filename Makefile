@@ -1,4 +1,13 @@
 b: build
+remove-lock-files:
+	find . -name "package-lock.json" | xargs -I {} rm {}; \
+	find . -name "yarn.lock" | xargs -I {} rm {};
+update: remove-lock-files
+	npm install -g npm-check-updates
+	cd concert-demos-gui;\
+ 	npx browserslist --update-db;\
+ 	ncu -u;\
+ 	yarn
 build:
 	mvn clean install
 deps-plugins-update:
